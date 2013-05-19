@@ -1,0 +1,22 @@
+= form_for [@application, @password] do |f|
+  - if @password.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@password.errors.count, "error")} prohibited this password from being saved:"
+      %ul
+        - @password.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :application_id
+    = f.number_field :application_id
+  .field
+    = f.label :password
+    = f.text_field :password
+  .form-actions
+    = f.submit 'Save', class: 'btn btn-primary'

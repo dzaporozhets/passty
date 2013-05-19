@@ -1,0 +1,19 @@
+= form_for @application do |f|
+  - if @application.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@application.errors.count, "error")} prohibited this application from being saved:"
+      %ul
+        - @application.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :description
+    = f.text_area :description
+  .form-actions
+    = f.submit 'Save', class: 'btn btn-primary'

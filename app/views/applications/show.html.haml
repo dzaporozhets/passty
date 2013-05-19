@@ -1,0 +1,27 @@
+- if notice
+  .alert.alert-info
+    = notice
+
+%h3
+  Application:
+  #{@application.title}
+
+%p
+  %b Url:
+  = @application.url
+%p
+  %b Description:
+  = @application.description
+
+
+%ul
+  - @application.passwords.each do |pass|
+    = link_to [@application, pass] do
+      pass.title
+
+
+= link 'Add password', new_application_password_path(@application)
+
+= link_to 'Edit', edit_application_path(@application)
+\|
+= link_to 'Back', applications_path

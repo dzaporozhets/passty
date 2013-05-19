@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 1.0.1'
 # App web server
 gem 'puma'
 
+# Auth
+gem 'devise', '~> 3.0.0.rc'
+
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem "font-awesome-sass-rails", "~> 3.0.0"

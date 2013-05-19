@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @password.title
+%p
+  %b Description:
+  = @password.description
+%p
+  %b Application:
+  = @password.application_id
+%p
+  %b Password:
+  = @password.password
+
+= link_to 'Edit', edit_password_path(@password)
+\|
+= link_to 'Back', passwords_path

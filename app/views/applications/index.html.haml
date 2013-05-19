@@ -1,0 +1,23 @@
+%h1 Listing applications
+
+%table.table
+  %tr
+    %th Title
+    %th Url
+    %th Description
+    %th
+
+  - @applications.each do |application|
+    %tr
+      %td
+        = link_to application.title, application_path(application)
+      %td= application.url
+      %td= application.description
+      %td
+        = link_to 'Edit', edit_application_path(application)
+        \|
+        = link_to 'Destroy', application, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Application', new_application_path, class: 'btn'

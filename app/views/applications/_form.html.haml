@@ -16,4 +16,7 @@
     = f.label :description
     = f.text_area :description
   .form-actions
-    = f.submit 'Save', class: 'btn btn-primary'
+    - if @application.new_record?
+      = f.submit 'Create', class: 'btn btn-primary btn-success'
+    - else
+      = f.submit 'Save', class: 'btn btn-primary'

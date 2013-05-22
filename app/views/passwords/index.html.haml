@@ -1,25 +1,8 @@
-%h1 Listing passwords
+%h2
+  #{link_to @application.title, @application} &rarr; Passwords
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Application
-    %th Password
-    %th
-    %th
-    %th
-
-  - @passwords.each do |password|
-    %tr
-      %td= password.title
-      %td= password.description
-      %td= password.application_id
-      %td= password.password
-      %td= link_to 'Show', password
-      %td= link_to 'Edit', edit_password_path(password)
-      %td= link_to 'Destroy', password, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render 'list'
 
 %br
 
-= link_to 'New Password', new_password_path
+= link_to 'New Password', new_application_password_path(@application)

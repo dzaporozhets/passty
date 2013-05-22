@@ -4,12 +4,14 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = current_user.applications.all
+    @applications = current_user.applications
+    @applications = @applications.search(params[:search]) if params[:search].present?
   end
 
   # GET /applications/1
   # GET /applications/1.json
   def show
+    @passwords = @application.passwords
   end
 
   # GET /applications/new

@@ -1,4 +1,10 @@
-%h1 Listing applications
+%h2
+  Listing applications
+  = link_to 'New Application', new_application_path, class: 'btn btn-primary pull-right'
+
+= form_tag applications_path, class: 'form-inline', method: :get do
+  = text_field_tag :search, params[:search]
+  = submit_tag 'Search', class: 'btn'
 
 %table.table
   %tr
@@ -20,4 +26,3 @@
 
 %br
 
-= link_to 'New Application', new_application_path, class: 'btn'

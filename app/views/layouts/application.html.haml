@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title= "Your Website"
+    %title= "PassTy"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
@@ -10,15 +10,20 @@
       .navbar-inner
         .container
           = link_to root_path, class: 'brand' do
+            %i.icon-key
             PassTy
+
+          %ul.nav
+            %li
+              = link_to new_application_path do
+                %i.icon-plus
+                New Application
           %ul.nav.nav-pills.pull-right
             - if current_user
               %li
                 = image_tag current_user_gravatar(40)
               %li
                 = link_to "Account", edit_user_registration_path
-              %li
-                = link_to 'New Application', new_application_path
               %li
                 = link_to destroy_user_session_path, method: 'delete' do
                   %i.icon-signout
@@ -28,4 +33,13 @@
 
     .container
       .content
+        - if notice
+          .alert.alert-info
+            %span
+              = notice
+        - if alert
+          .alert
+            %span
+              = alert
+
         = yield

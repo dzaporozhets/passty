@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @password
+= link_to 'Show', [@application, @password]
 \|
-= link_to 'Back', passwords_path
+= link_to 'Back', application_passwords_path(@application)

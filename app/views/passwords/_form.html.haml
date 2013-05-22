@@ -7,14 +7,12 @@
           %li= msg
 
   .field
-    = f.label :title
+    = f.label :title do
+      Title (username, email etc)
     = f.text_field :title
   .field
-    = f.label :description
+    = f.label :description, 'Description (optional)'
     = f.text_area :description
-  .field
-    = f.label :application_id
-    = f.number_field :application_id
   .field
     = f.label :password
     = f.text_field :password

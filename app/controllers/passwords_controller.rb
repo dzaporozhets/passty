@@ -6,7 +6,7 @@ class PasswordsController < ApplicationController
   # GET /passwords
   # GET /passwords.json
   def index
-    @passwords = Password.all
+    @passwords = application.passwords.all
   end
 
   # GET /passwords/1
@@ -16,7 +16,7 @@ class PasswordsController < ApplicationController
 
   # GET /passwords/new
   def new
-    @password = Password.new
+    @password = application.passwords.new
   end
 
   # GET /passwords/1/edit
@@ -26,11 +26,11 @@ class PasswordsController < ApplicationController
   # POST /passwords
   # POST /passwords.json
   def create
-    @password = Password.new(password_params)
+    @password = application.passwords.new(password_params)
 
     respond_to do |format|
       if @password.save
-        format.html { redirect_to @password, notice: 'Password was successfully created.' }
+        format.html { redirect_to [application, @password], notice: 'Password was successfully created.' }
         format.json { render action: 'show', status: :created, location: @password }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class PasswordsController < ApplicationController
   def update
     respond_to do |format|
       if @password.update(password_params)
-        format.html { redirect_to @password, notice: 'Password was successfully updated.' }
+        format.html { redirect_to [application, @password], notice: 'Password was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,9 +65,13 @@ class PasswordsController < ApplicationController
 
   private
 
+  def set_application
+    @application ||= Application.find(params[:application_id])
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_password
-    @password = Password.find(params[:id])
+    @password = application.passwords.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

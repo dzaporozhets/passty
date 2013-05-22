@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   has_many :applications, dependent: :destroy
 
+  after_create :generate_encrypting_key
 
   def encrypt(text)
     encryptor.encrypt_and_sign(text)

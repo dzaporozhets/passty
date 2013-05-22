@@ -1,0 +1,17 @@
+%h2 Sign in
+.ui-block
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %div
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'span4'
+    %div
+      = f.label :password
+      = f.password_field :password, class: 'span4'
+    - if devise_mapping.rememberable?
+      %div
+        = f.label :remember_me do
+          = f.check_box :remember_me
+          Remember me
+      %br
+    %div= f.submit "Sign in", class: 'btn btn-primary'
+  = render "devise/shared/links"

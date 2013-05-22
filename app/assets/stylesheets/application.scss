@@ -19,3 +19,12 @@
 h1, h2 { margin: 15px 0; }
 
 .content { margin-top: 10px }
+
+body > .navbar > .navbar-inner {
+  background: #EEF;
+}
+
+.ui-block {
+  background: #f9f9f9;
+  padding: 20px;
+}

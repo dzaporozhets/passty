@@ -3,6 +3,8 @@ class PasswordsController < ApplicationController
 
   before_action :application
 
+  before_action :require_password, only: [:show, :edit]
+
   # GET /passwords
   # GET /passwords.json
   def index

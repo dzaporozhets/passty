@@ -1,0 +1,14 @@
+.ui-block
+  %p.lead Security check. We need your password to proceed
+  = form_tag password_check_path do
+    - if @error.present?
+      .alert.alert-error
+        %span= @error
+
+    %div
+      = label_tag :password
+      = password_field_tag :password, nil, class: 'span4'
+    %div
+      = hidden_field_tag :redirect_to, params[:redirect_to]
+    %div
+      = submit_tag "Submit", class: 'btn btn-primary'

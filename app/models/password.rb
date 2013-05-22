@@ -24,7 +24,7 @@ class Password < ActiveRecord::Base
   end
 
   def decrypted_password
-    user.decrypt(password)
+    user.decrypt(password) if password.present?
   end
 
   def user

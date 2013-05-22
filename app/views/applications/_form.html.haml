@@ -8,13 +8,13 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, class: 'span4'
   .field
     = f.label :url
-    = f.text_field :url
+    = f.text_field :url, class: 'span4'
   .field
     = f.label :description
-    = f.text_area :description
+    = f.text_area :description, class: 'span4'
   .form-actions
     - if @application.new_record?
       = f.submit 'Create', class: 'btn btn-primary btn-success'

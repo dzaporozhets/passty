@@ -9,12 +9,12 @@
   .field
     = f.label :title do
       Title (username, email etc)
-    = f.text_field :title
+    = f.text_field :title, class: 'span4'
   .field
     = f.label :description, 'Description (optional)'
-    = f.text_area :description
+    = f.text_area :description, class: 'span4'
   .field
     = f.label :password
-    = f.text_field :password
+    = f.text_field :password, value: @password.decrypted_password, class: 'span4'
   .form-actions
     = f.submit 'Save', class: 'btn btn-primary'

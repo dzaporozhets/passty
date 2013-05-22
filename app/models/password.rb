@@ -16,4 +16,18 @@ class Password < ActiveRecord::Base
 
   validates :title, presence: true
   validates :password, presence: true
+
+  before_save :encrypt
+
+  def encrypt
+    self.password = user.encrypt(self.password)
+  end
+
+  def decrypted_password
+    user.decrypt(password)
+  end
+
+  def user
+    application.user
+  end
 end

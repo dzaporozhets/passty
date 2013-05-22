@@ -25,4 +25,24 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :applications, dependent: :destroy
+
+
+  def encrypt(text)
+    encryptor.encrypt_and_sign(text)
+  end
+
+  def decrypt(text)
+    encryptor.decrypt_and_verify(text)
+  end
+
+  def generate_encrypting_key
+    self.encrypting_key = Digest::SHA1.hexdigest(email)
+    self.save
+  end
+
+  private
+
+  def encryptor
+    ActiveSupport::MessageEncryptor.new(encrypting_key)
+  end
 end

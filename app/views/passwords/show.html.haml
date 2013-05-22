@@ -8,11 +8,9 @@
   %b Description:
   = @password.description
 %p
-  %b Application:
-  = @password.application_id
-%p
   %b Password:
-  = @password.password
+  %code
+    = @password.decrypted_password
 
 %hr
 = link_to 'Edit', edit_application_password_path(@application, @password)

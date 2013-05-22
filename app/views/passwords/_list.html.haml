@@ -10,7 +10,7 @@
     %tr
       %td= link_to password.title, [@application, password]
       %td= password.description
-      %td= password.password
+      %td= link_to '(hidden)', [@application, password]
       %td= link_to 'Edit', edit_application_password_path(@application, password), class: 'btn btn-small'
       %td= link_to 'Destroy', [@application, password], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger'
 

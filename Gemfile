@@ -48,6 +48,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'annotate'
   gem 'factory_girl_rails'
   gem 'spork', '~> 1.0rc'
   gem 'poltergeist'

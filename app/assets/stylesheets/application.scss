@@ -16,12 +16,19 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
-h1, h2 { margin: 15px 0; }
+body {
+  > .navbar > .navbar-inner {
+    background: #234;
+  }
 
-.content { margin-top: 10px }
+  .content {
+    margin-top: 10px;
 
-body > .navbar > .navbar-inner {
-  background: #EEF;
+    > h1, h2, h3 {
+      margin: 15px 0;
+      font-weight: normal;
+    }
+  }
 }
 
 .ui-block {

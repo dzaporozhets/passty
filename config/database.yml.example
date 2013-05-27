@@ -8,7 +8,7 @@ production:
   database: passty_production
   pool: 5
   username: root
-  password: "1710"
+  password: "secure password"
   # host: localhost
   # socket: /tmp/mysql.sock
 
@@ -22,7 +22,7 @@ development:
   database: passty_development
   pool: 5
   username: root
-  password: "1710"
+  password: "secure password"
   # socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -35,5 +35,5 @@ test: &test
   database: passty_test
   pool: 5
   username: root
-  password: "1710"
+  password:
   # socket: /tmp/mysql.sock

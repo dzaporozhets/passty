@@ -16,7 +16,8 @@
   - @applications.each do |application|
     %tr
       %td
-        = link_to application.title, application_path(application)
+        = link_to application_path(application) do
+          %strong= application.title
       %td= application.url
       %td= application.description
       %td

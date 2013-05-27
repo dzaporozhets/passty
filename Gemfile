@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql as the database for Active Record
+gem "mysql2"
 
 # Use HAML for templates
 gem 'haml-rails', '~> 0.4'
@@ -35,8 +35,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem "font-awesome-sass-rails", "~> 3.0.0"
 gem 'bootstrap-sass'
-
-gem "seed-fu"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

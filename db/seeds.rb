@@ -5,3 +5,33 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+user = User.create(
+  id: 1,
+  email: "js@local.host",
+  password: "12345678",
+  password_confirmation: "12345678",
+)
+
+(1..10).each  do |i|
+  begin
+    user.applications.create(
+      id: i,
+      title: Faker::Internet.domain_name,
+      url: Faker::Internet.uri('http'),
+      description: Faker::Lorem.sentence,
+    )
+    print '.'
+  rescue ActiveRecord::RecordNotSaved
+    print 'F'
+  end
+end
+
+user.applications.each do |app|
+  begin
+    app.passwords.create(password: '1jyaa46DA17x89', title: Faker::Name.first_name.downcase)
+    print '.'
+  rescue ActiveRecord::RecordNotSaved
+    print 'F'
+  end
+end

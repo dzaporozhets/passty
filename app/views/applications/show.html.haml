@@ -1,10 +1,10 @@
-%h3
+%h2
   Application:
   #{@application.title}
 
   = link_to 'Edit', edit_application_path(@application), class: 'pull-right btn'
 
-.well
+.ui-block
   %p
     %b Url:
     = link_to @application.url, @application.url

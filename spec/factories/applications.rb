@@ -2,9 +2,8 @@
 
 FactoryGirl.define do
   factory :application do
-    title "MyString"
-    url "MyString"
-    description "MyText"
+    title "GMail"
+    url "http://mail.google.com"
     user_id 1
   end
 end

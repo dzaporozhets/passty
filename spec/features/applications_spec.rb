@@ -34,4 +34,14 @@ describe 'Applications' do
     it { current_path.should == application_path(Application.last) }
     it { page.should have_content 'Application was successfully created.' }
   end
+
+  describe :show do
+    let(:application) { FactoryGirl.create(:application, user: @user) }
+    before do
+      visit application_path(application)
+    end
+
+    it { within('h2') { page.should have_content application.title } }
+    it { page.should have_content 'Passwords' }
+  end
 end

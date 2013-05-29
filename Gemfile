@@ -54,7 +54,9 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'guard-rspec'
   gem 'pry'
+  gem 'capybara', '~> 2.1.0'
   gem 'rspec-rails', '~> 2.13'
+  gem 'shoulda-matchers'
 end
 
 

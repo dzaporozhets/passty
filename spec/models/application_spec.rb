@@ -14,5 +14,7 @@
 require 'spec_helper'
 
 describe Application do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :user }
+  it { should have_many :passwords }
+  it { validate_uniqueness_of :title }
 end

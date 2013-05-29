@@ -17,9 +17,14 @@
     %tr
       %td
         = link_to application_path(application) do
+          %i.icon-star-empty
           %strong= application.title
-      %td= application.url
-      %td= application.description
+      %td
+        %small
+          = link_to application.url, application.url
+      %td
+        %small.cgray
+          = application.description
       %td
         = link_to 'Edit', edit_application_path(application)
         \|

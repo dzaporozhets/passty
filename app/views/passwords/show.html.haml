@@ -1,5 +1,9 @@
 %h2
-  #{link_to @application.title, @application} &rarr; #{@password.title}
+  Apps
+  %i.icon-angle-right
+  = link_to @application.title, @application
+  %i.icon-angle-right
+  = @password.title
 
 %p
   %b Title:

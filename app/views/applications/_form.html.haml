@@ -8,13 +8,13 @@
 
   .field
     = f.label :title
-    = f.text_field :title, class: 'span4'
+    = f.text_field :title, class: 'span4', placeholder: 'GMail'
   .field
     = f.label :url
-    = f.text_field :url, class: 'span4'
+    = f.text_field :url, class: 'span4', placeholder: 'http://mail.google.com'
   .field
     = f.label :description
-    = f.text_area :description, class: 'span4'
+    = f.text_area :description, class: 'span4', placeholder: 'email application'
   .form-actions
     - if @application.new_record?
       = f.submit 'Create', class: 'btn btn-primary btn-success'

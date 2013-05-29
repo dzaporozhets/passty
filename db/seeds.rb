@@ -28,10 +28,12 @@ user = User.create(
 end
 
 user.applications.each do |app|
-  begin
-    app.passwords.create(password: '1jyaa46DA17x89', title: Faker::Name.first_name.downcase)
-    print '.'
-  rescue ActiveRecord::RecordNotSaved
-    print 'F'
+  3.times do
+    begin
+      app.passwords.create(password: '1jyaa46DA17x89', title: Faker::Name.first_name.downcase)
+      print '.'
+    rescue ActiveRecord::RecordNotSaved
+      print 'F'
+    end
   end
 end

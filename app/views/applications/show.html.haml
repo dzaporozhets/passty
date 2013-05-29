@@ -1,15 +1,14 @@
 %h2
-  Application:
-  #{@application.title}
+  Apps
+  %i.icon-angle-right
+  = @application.title
 
   = link_to 'Edit', edit_application_path(@application), class: 'pull-right btn'
 
 .ui-block
   %p
-    %b Url:
     = link_to @application.url, @application.url
   %p
-    %b Description:
     = @application.description
 
 

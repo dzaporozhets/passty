@@ -19,6 +19,8 @@
         = link_to application_path(application) do
           %i.icon-star-empty
           %strong= application.title
+        %small.cgray
+          (#{application.passwords.count})
       %td
         %small
           = link_to application.url, application.url

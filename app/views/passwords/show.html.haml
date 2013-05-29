@@ -1,22 +1,18 @@
 %h2
-  Apps
+  = link_to 'Apps', applications_path
   %i.icon-angle-right
   = link_to @application.title, @application
   %i.icon-angle-right
   = @password.title
 
-%p
-  %b Title:
-  = @password.title
-%p
-  %b Description:
+%p.cgray
   = @password.description
-%p
-  %b Password:
-  %code
+
+
+%h5 Your password:
+.ui-block
+  .password
     = @password.decrypted_password
 
 %hr
-= link_to 'Edit', edit_application_password_path(@application, @password)
-\|
-= link_to 'Back', application_passwords_path(@application)
+= link_to 'Edit', edit_application_password_path(@application, @password), class: 'btn'

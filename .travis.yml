@@ -1,0 +1,16 @@
+language: ruby
+env:
+  - DB=mysql TRAVIS=true
+branches:
+  only:
+    - 'master'
+rvm:
+  - 1.9.3-p392
+  - 2.0.0
+services:
+  - mysql
+before_script:
+  - "cp config/database.yml.$DB config/database.yml"
+  - "bundle exec rake db:setup RAILS_ENV=test"
+  - "sh -e /etc/init.d/xvfb start"
+script: "bundle exec rake spec"

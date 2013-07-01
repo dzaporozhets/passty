@@ -1,5 +1,8 @@
 ## PassTy: web application to keep your passwords in one place behind firewall install 
 
+[![Build Status](https://travis-ci.org/randx/passty.png)](https://travis-ci.org/randx/passty)
+[![Coverage Status](https://coveralls.io/repos/randx/passty/badge.png)](https://coveralls.io/r/randx/passty)
+[![Code Climate](https://codeclimate.com/github/randx/passty.png)](https://codeclimate.com/github/randx/passty)
 
 ### Requirements:
 

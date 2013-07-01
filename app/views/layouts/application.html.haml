@@ -5,12 +5,13 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    = favicon_link_tag 'favicon.ico'
   %body
     .navbar.navbar-static-top.navbar-inverse
       .navbar-inner
         .container
           = link_to root_path, class: 'brand' do
-            %i.icon-key
+            %span.brand-letter P
             PassTy
 
           %ul.nav
@@ -21,7 +22,7 @@
           %ul.nav.nav-pills.pull-right
             - if current_user
               %li
-                = image_tag current_user_gravatar(40)
+                = image_tag current_user_gravatar(40), class: 'avatar'
               %li
                 = link_to "Account", edit_user_registration_path
               %li
@@ -43,3 +44,9 @@
               = alert
 
         = yield
+
+        %hr
+        %div
+          %small.pull-right
+            Version: #{Passty::VERSION}
+            Revision: #{Passty::REVISION}

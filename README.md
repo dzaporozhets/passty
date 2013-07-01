@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/randx/passty/badge.png)](https://coveralls.io/r/randx/passty)
 [![Code Climate](https://codeclimate.com/github/randx/passty.png)](https://codeclimate.com/github/randx/passty)
 
+![screenshot](https://raw.github.com/randx/passty/master/public/screenshot.png)
+
 ### Requirements:
 
 * ruby 1.9+

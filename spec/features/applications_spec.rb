@@ -14,7 +14,7 @@ describe 'Applications' do
   describe :new do
     before do
       visit applications_path
-      within '.content' do
+      within '.title-container' do
         click_link 'New Application'
       end
     end

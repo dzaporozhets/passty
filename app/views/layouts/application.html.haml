@@ -7,46 +7,54 @@
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'
   %body
-    .navbar.navbar-static-top.navbar-inverse
-      .navbar-inner
-        .container
-          = link_to root_path, class: 'brand' do
-            %span.brand-letter P
-            PassTy
+    .wrap
+      .navbar.navbar-static-top
+        .navbar-inner
+          .container
+            = link_to root_path, class: 'brand' do
+              %strong PassTy
 
-          %ul.nav
-            %li
-              = link_to new_application_path do
-                %i.icon-plus
-                New Application
-          %ul.nav.nav-pills.pull-right
             - if current_user
-              %li
-                = image_tag current_user_gravatar(40), class: 'avatar'
-              %li
-                = link_to "Account", edit_user_registration_path
-              %li
-                = link_to destroy_user_session_path, method: 'delete' do
-                  %i.icon-signout
-                  Log Out
-            - else
-              %li= link_to "Sign In / Sign Up", new_user_session_path
+              %ul.nav
+                %li
+                  = link_to new_application_path do
+                    %i.icon-plus
+                    New Application
+            %ul.nav.nav-pills.pull-right
+              - if current_user
+                %li
+                  = image_tag current_user_gravatar(40), class: 'avatar'
+                %li
+                  = link_to "Account", edit_user_registration_path
+                %li
+                  = link_to destroy_user_session_path, method: 'delete' do
+                    %i.icon-signout
+                    Log Out
+              - else
+                %li= link_to "Sign In / Sign Up", new_user_session_path
 
-    .container
-      .content
-        - if notice
-          .alert.alert-info
-            %span
-              = notice
-        - if alert
-          .alert
-            %span
-              = alert
+      - if content_for? :title
+        .container.title-container
+          .content
+            = yield :title
+        %hr.title-line
 
-        = yield
+      .container
+        .content
+          - if notice
+            .alert.alert-info
+              %span
+                = notice
+          - if alert
+            .alert
+              %span
+                = alert
 
-        %hr
-        %div
-          %small.pull-right
-            Version: #{Passty::VERSION}
-            Revision: #{Passty::REVISION}
+          = yield
+
+
+    .footer
+      .container
+        %small.pull-right.cgray
+          Version: #{Passty::VERSION}
+          Revision: #{Passty::REVISION}

@@ -1,9 +1,11 @@
-%h2
-  Listing applications
-  = link_to 'New Application', new_application_path, class: 'btn btn-primary pull-right'
+= content_for :title do
+  %h2
+    Listing applications
+    .pull-right
+      = link_to 'New Application', new_application_path, class: 'btn btn-success'
 
 = form_tag applications_path, class: 'form-inline', method: :get do
-  = text_field_tag :search, params[:search]
+  = text_field_tag :search, params[:search], class: 'span4'
   = submit_tag 'Search', class: 'btn'
 
 %table.table
@@ -16,8 +18,8 @@
   - @applications.each do |application|
     %tr
       %td
+        %i.icon-star-empty.cgray
         = link_to application_path(application) do
-          %i.icon-star-empty
           %strong= application.title
         %small.cgray
           (#{application.passwords.count})
@@ -28,9 +30,10 @@
         %small.cgray
           = application.description
       %td
-        = link_to 'Edit', edit_application_path(application)
-        \|
-        = link_to 'Destroy', application, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        .pull-right
+          = link_to 'Edit', edit_application_path(application), class: 'btn btn-small'
+          &nbsp;
+          = link_to 'Destroy', application, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-small btn-danger'
 
 %br
 

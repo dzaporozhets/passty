@@ -1,9 +1,10 @@
-%h2
-  = link_to 'Apps', applications_path
-  %i.icon-angle-right
-  = link_to @application.title, @application
-  %i.icon-angle-right
-  = @password.title
+= content_for :title do
+  %h2
+    = link_to 'Apps', applications_path
+    %i.icon-angle-right
+    = link_to @application.title, @application
+    %i.icon-angle-right
+    = @password.title
 
 %p.cgray
   = @password.description
@@ -14,5 +15,5 @@
   .password
     = @password.decrypted_password
 
-%hr
+%br
 = link_to 'Edit', edit_application_password_path(@application, @password), class: 'btn'

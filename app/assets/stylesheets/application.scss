@@ -17,9 +17,19 @@
 @import 'font-awesome';
 
 body {
-  > .navbar > .navbar-inner {
-    background: #234;
+  .navbar > .navbar-inner {
+    background: #298;
     padding: 5px;
+    color: #fff;
+
+    a {
+      color: #DDD;
+      text-shadow: 0 1px 1px #187;
+
+      &:hover {
+        color: #FFF;
+      }
+    }
   }
 
   .content {
@@ -64,4 +74,30 @@ body {
   background: #AAA;
   padding: 15px;
   color: #111;
+}
+
+table th {
+  background: #eee;
+  background-image: -webkit-linear-gradient(#eee 6.6%, #dfdfdf);
+  background-image: -moz-linear-gradient(#eee 6.6%, #dfdfdf);
+  background-image: -o-linear-gradient(#eee 6.6%, #dfdfdf);
+  border-bottom: 1px solid #CCC;
+}
+
+.title-line {
+  margin: 5px 0;
+}
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -30px;
 }

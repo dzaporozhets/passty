@@ -1,19 +1,25 @@
-%h2
-  = link_to 'Apps', applications_path
-  %i.icon-angle-right
-  = @application.title
+= content_for :title do
+  %h2
+    = link_to 'Apps', applications_path
+    %i.icon-angle-right.cgray
+    = @application.title
+    .pull-right
+      = link_to 'Edit', edit_application_path(@application), class: 'btn'
 
-  = link_to 'Edit', edit_application_path(@application), class: 'pull-right btn'
 
-.ui-block
+- if @application.url.present?
   %p
+    %b Url:
     = link_to @application.url, @application.url
+
+- if @application.description.present?
   %p
+    %b Description:
     = @application.description
 
 
 %h3
   Passwords:
-  = link_to 'New Password', new_application_password_path(@application), class: 'btn pull-right'
+  = link_to 'New Password', new_application_password_path(@application), class: 'btn btn-success pull-right'
 
 = render 'passwords/list'

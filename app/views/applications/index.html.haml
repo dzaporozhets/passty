@@ -25,7 +25,7 @@
           (#{application.passwords.count})
       %td
         %small
-          = link_to application.url, application.url
+          = link_to application.url, application.url, target: '_blank'
       %td
         %small.cgray
           = application.description
@@ -36,4 +36,4 @@
           = link_to 'Destroy', application, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-small btn-danger'
 
 %br
-
+= paginate @applications

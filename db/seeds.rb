@@ -14,7 +14,7 @@ if Rails.env.to_s == 'development'
     password_confirmation: "12345678",
   )
 
-  (1..10).each  do |i|
+  (1..50).each  do |i|
     begin
       user.applications.create(
         id: i,

@@ -36,6 +36,10 @@ gem 'jquery-rails'
 gem "font-awesome-sass-rails", "~> 3.0.0"
 gem 'bootstrap-sass'
 
+# Pagination
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

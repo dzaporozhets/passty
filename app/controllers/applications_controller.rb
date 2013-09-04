@@ -4,8 +4,9 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = current_user.applications
+    @applications = current_user.applications.order('title ASC')
     @applications = @applications.search(params[:search]) if params[:search].present?
+    @applications = @applications.page(params[:page] || 0).per(40)
   end
 
   # GET /applications/1

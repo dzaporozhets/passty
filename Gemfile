@@ -5,6 +5,7 @@ gem 'rails', '4.0.0.rc1'
 
 # Use mysql as the database for Active Record
 gem "mysql2"
+gem "mysql"
 
 # Use HAML for templates
 gem 'haml-rails', '~> 0.4'
@@ -59,6 +60,7 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

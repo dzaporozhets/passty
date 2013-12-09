@@ -6,7 +6,7 @@ gem 'rails', '~> 4.0.2'
 # Supported DBs
 gem "mysql2", group: :mysql
 gem "pg", group: :postgres
-
+gem 'sqlite3', group: :sqlite
 # Use HAML for templates
 gem 'haml-rails', '~> 0.4'
 

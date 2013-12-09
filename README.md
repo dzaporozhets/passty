@@ -29,6 +29,9 @@
         # or Postgres
         cp config/database.yml.postgres config/database.yml
 
+        # or sqlite
+        cp config/database.yml.sqlite config/database.yml
+
         vim config/database.yml
 
 

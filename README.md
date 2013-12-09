@@ -9,7 +9,7 @@
 ### Requirements:
 
 * ruby 1.9+
-* mysql db
+* mysql or postgres db
 
 ### Setup:
 
@@ -20,10 +20,15 @@
         cd passty
 
 
-2. Copy database.yml and edit mysql user/password
+2. Copy database.yml and edit db user/password
 
 
-        cp config/database.yml.example config/database.yml
+        # MySQL
+        cp config/database.yml.mysql config/database.yml
+         
+        # or Postgres
+        cp config/database.yml.postgres config/database.yml
+
         vim config/database.yml
 
 

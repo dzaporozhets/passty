@@ -125,6 +125,7 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
+    pg (0.17.0)
     poltergeist (1.3.0)
       capybara (~> 2.1.0)
       faye-websocket (>= 0.4.4, < 0.5.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap
   mysql2
+  pg
   poltergeist
   pry
   puma

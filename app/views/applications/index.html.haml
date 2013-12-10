@@ -11,6 +11,7 @@
 %table.table
   %tr
     %th Title
+    %th Passwords
     %th Url
     %th Description
     %th
@@ -21,8 +22,8 @@
         %i.icon-star-empty.cgray
         = link_to application_path(application) do
           %strong= application.title
-        %small.cgray
-          (#{application.passwords.count})
+      %td.light
+        %strong= application.passwords.count
       %td
         %small
           = link_to application.url, application.url, target: '_blank'

@@ -41,6 +41,7 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 
+gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

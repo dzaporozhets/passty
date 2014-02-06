@@ -14,10 +14,9 @@ if Rails.env.to_s == 'development'
     password_confirmation: "12345678",
   )
 
-  (1..50).each  do |i|
+  (1..30).each  do |i|
     begin
       user.applications.create(
-        id: i,
         title: Faker::Internet.domain_name,
         url: Faker::Internet.uri('http'),
         description: Faker::Lorem.sentence,

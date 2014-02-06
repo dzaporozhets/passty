@@ -4,8 +4,20 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = current_user.applications.order('title ASC')
+    @applications = current_user.applications
     @applications = @applications.search(params[:search]) if params[:search].present?
+
+    @sort = params[:sort]
+
+    @applications = case @sort
+                    when 'newest'
+                      @applications.reorder('applications.created_at DESC')
+                    when 'oldest'
+                      @applications.reorder('applications.created_at ASC')
+                    else
+                      @applications.reorder('applications.title ASC')
+                    end
+
     @applications = @applications.page(params[:page] || 0).per(40)
   end
 

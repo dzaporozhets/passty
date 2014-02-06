@@ -19,6 +19,6 @@ class Application < ActiveRecord::Base
   validates :title, presence: true
 
   def self.search(query)
-    where("applications.title LIKE :query OR applications.url LIKE :query", query: "%#{query}%")
+    where("lower(applications.title) LIKE :query OR applications.url LIKE :query", query: "%#{query.downcase}%")
   end
 end

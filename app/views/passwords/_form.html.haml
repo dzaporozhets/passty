@@ -6,16 +6,16 @@
         - @password.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :title do
       Title (username, email etc)
-    = f.text_field :title, class: 'span4'
-  .field
+    = f.text_field :title, class: 'form-control'
+  .form-group
     = f.label :description, 'Description (optional)'
-    = f.text_area :description, class: 'span4'
-  .field
+    = f.text_area :description, class: 'form-control'
+  .form-group
     = f.label :password
-    = f.text_field :password, value: @password.decrypted_password, class: 'span4'
+    = f.text_field :password, value: @password.decrypted_password, class: 'form-control'
   .form-actions
     = f.submit 'Save', class: 'btn btn-primary'
 

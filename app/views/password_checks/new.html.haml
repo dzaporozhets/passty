@@ -5,10 +5,10 @@
       .alert.alert-error
         %span= @error
 
-    %div
+    .form-group
       = label_tag :password
-      = password_field_tag :password, nil, class: 'span4'
-    %div
+      = password_field_tag :password, nil, class: 'form-control'
+    .form-group
       = hidden_field_tag :redirect_to, params[:redirect_to]
-    %div
+    .form-group
       = submit_tag "Submit", class: 'btn btn-primary'

@@ -2,31 +2,32 @@
   Edit #{resource_name.to_s.humanize}
 %hr
 .row
-  .span7
+  .col-md-7
     %h4 Profile
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = devise_error_messages!
       %div
         = f.label :email
-        = f.email_field :email, :autofocus => true
+        = f.email_field :email, autofocus: true, class: 'form-control'
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       %div
         = f.label :password
-        = f.password_field :password, :autocomplete => "off"
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
         %i (leave blank if you don't want to change it)
       %div
         = f.label :password_confirmation
-        = f.password_field :password_confirmation
+        = f.password_field :password_confirmation, class: 'form-control'
       %div
         = f.label :current_password
-        = f.password_field :current_password
+        = f.password_field :current_password, class: 'form-control'
         %i (we need your current password to confirm your changes)
       %hr
       %div
         = f.submit "Update profile", class: 'btn btn-primary'
-  .span5
-    %h4 Cancel my account
-    %p
-      Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: 'btn btn-danger'}
+  .col-md-5
+    .alert.alert-danger
+      %h4 Cancel my account
+      %p
+        Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'}

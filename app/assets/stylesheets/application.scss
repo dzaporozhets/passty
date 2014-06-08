@@ -9,45 +9,20 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *
+ *= require bootstrap.min
  *= require_self
  *= require_tree .
  */
 
-@import 'bootstrap';
-@import 'bootstrap-responsive';
 @import 'font-awesome';
 
-body {
-  .navbar > .navbar-inner {
-    background: #297;
-    padding: 5px;
-    color: #fff;
+.login-holder {
+  width: 330px;
+  margin: 40px auto;
 
-    a {
-      color: #FFF;
-      text-shadow: 0 1px 1px #187;
-
-      &:hover {
-        color: #FFF;
-      }
-    }
-  }
-
-  .content {
-    margin-top: 15px;
-
-    > h1, h2, h3 {
-      margin: 15px 0;
-      font-weight: normal;
-    }
-
-    > h2 {
-      font-size: 24px;
-    }
-
-    > h3 {
-      font-size: 20px;
-    }
+  label {
+    font-weight: normal;
+    margin-bottom: 3px;
   }
 }
 
@@ -61,6 +36,7 @@ body {
 }
 
 .password {
+  color: #333;
   font-size: 18px;
   font-family: 'Menlo', 'Liberation Mono', 'Consolas', 'Courier New', 'andale mono', 'lucida console', monospace;
 }
@@ -71,19 +47,19 @@ body {
   margin: 6px 0;
 }
 
-.brand-letter {
-  background: #AAA;
-  padding: 15px;
-  color: #111;
-}
-
 table th {
   background: #eee;
   border-bottom: 1px solid #DDD;
 }
 
 .title-line {
-  margin: 5px 0;
+  margin: 10px 0;
+}
+
+.title-container {
+  h2 {
+    margin:0;
+  }
 }
 
 html,
@@ -98,4 +74,11 @@ body {
   height: 100%;
   /* Negative indent footer by it's height */
   margin: 0 auto -30px;
+}
+
+.search-form {
+  margin-bottom: 10px;
+  input[type="search"] {
+    min-width: 30%;
+  }
 }

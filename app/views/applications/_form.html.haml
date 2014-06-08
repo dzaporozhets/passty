@@ -6,15 +6,15 @@
         - @application.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :title
-    = f.text_field :title, class: 'span4', placeholder: 'GMail'
-  .field
+    = f.text_field :title, class: 'form-control', placeholder: 'GMail'
+  .form-group
     = f.label :url
-    = f.text_field :url, class: 'span4', placeholder: 'http://mail.google.com'
-  .field
+    = f.text_field :url, class: 'form-control', placeholder: 'http://mail.google.com'
+  .form-group
     = f.label :description
-    = f.text_area :description, class: 'span4', placeholder: 'email application'
+    = f.text_area :description, class: 'form-control', placeholder: 'email application'
   .form-actions
     - if @application.new_record?
       = f.submit 'Create', class: 'btn btn-primary btn-success'

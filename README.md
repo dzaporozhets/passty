@@ -14,6 +14,15 @@
 ### Setup:
 
 
+#### Heroku:
+
+    heroku create
+    heroku config:set BUNDLE_WITHOUT="development:test:sqlite:mysql"
+    heroku addons:add heroku-postgresql
+    heroku run rake db:migrate
+
+#### Manually:
+
 1. Get code
 
         git clone https://github.com/randx/passty.git

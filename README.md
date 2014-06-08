@@ -19,6 +19,7 @@
     heroku create
     heroku config:set BUNDLE_WITHOUT="development:test:sqlite:mysql"
     heroku addons:add heroku-postgresql
+    git push heroku master
     heroku run rake db:migrate
 
 #### Manually:

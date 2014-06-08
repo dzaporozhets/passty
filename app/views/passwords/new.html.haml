@@ -1,5 +1,7 @@
 = content_for :title do
-  %h2 New password
+  %h2
+    New password
+    %small for #{@application.title}
 
 = render 'form'
 

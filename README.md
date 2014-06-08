@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/randx/passty/badge.png)](https://coveralls.io/r/randx/passty)
 [![Code Climate](https://codeclimate.com/github/randx/passty.png)](https://codeclimate.com/github/randx/passty)
 
-![screenshot](https://raw.github.com/randx/passty/master/public/screenshot.png)
+![screenshot](http://blog.dzaporozhets.me/content/images/2014/Jun/Screenshot-2014-06-08-10-44-51.png)
 
 ### Requirements:
 
@@ -50,3 +50,19 @@
 - - -
 
 Pull Requests are welcome :)
+
+
+### Update from older versions:
+
+1. Get version you want
+
+    git feftch
+    git checkout v0.5.0
+
+
+2. Install libs and migration
+
+    bundle
+    bundle exec rake db:migrate RAILS_ENV=production
+
+3. Start application

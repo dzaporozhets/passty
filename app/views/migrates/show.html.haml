@@ -1,0 +1,30 @@
+- if @old_passwords.size.zero?
+  = link_to 'Nothing to migrate! Lets go back to app', root_path
+- else
+  %h2
+    You have #{pluralize(@old_passwords.count, 'password')} from previous version.
+  .panel.panel-default
+    .panel-body
+      = form_tag migrate_path, method: :get, class: 'migrate-form' do
+        .form-group
+          = label_tag 'encrypt_key' do
+            Encryption key (master password)
+          = text_field_tag :encrypt_key, nil, class: 'form-control', required: true
+        %span.loading.btn.btn-success.unvisible
+          %i.icon-spin.icon-refresh
+        = submit_tag 'Migrate', class: 'btn btn-success'
+
+  %ul
+    - @old_passwords.each do |password|
+      %li
+        = form_for [password.application, password], remote: true, method: :put, html: { class: 'migrate-password-form' } do |f|
+          %span
+            = password.application.title
+            &ndash;
+            = password.title
+          = f.hidden_field :decrypted_password, class: 'decrypted-pass'
+          = f.hidden_field :old, value: false
+          = f.hidden_field :password, value: nil, class: 'encrypted-pass'
+
+:coffeescript
+  new PasswordMigrate()

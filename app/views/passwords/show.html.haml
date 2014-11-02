@@ -15,8 +15,14 @@
   .panel-body
     = hidden_field_tag :encrypted_password, @password.decrypted_password
     .alert.alert-danger.errors.unvisible
+    .password-decrypt
+      = form_tag '#', class: 'decrypt-form' do
+        .form-group
+          = label_tag 'encrypt_key' do
+            Encryption key (master password)
+          = text_field_tag :encrypt_key, nil, class: 'form-control', required: true, autofocus: true
+        = submit_tag 'Decrypt password', class: 'btn btn-primary'
     .password
-      = link_to 'Decrypt password', '#', class: 'decrypt-link btn btn-primary'
 
 
 %br

@@ -28,20 +28,20 @@ class @PasswordForm
 
 class @PasswordShow
   constructor: ->
-    $('.decrypt-link').on 'click', (e) ->
+    form = $('.decrypt-form')
+    form.on 'submit', (e) ->
       e.preventDefault()
       password = new Password()
       encryptedPassword = $('#encrypted_password').val()
-      key = prompt("Please enter encryption key", "")
+      key = form.find('#encrypt_key').val()
+      password = password.decrypt(key, encryptedPassword)
 
-      if key
-        password = password.decrypt(key, encryptedPassword)
-
-        if password
-          $('.password').text(password)
-          $('.errors').hide()
-        else
-          $('.errors').text('Wrong encryption key').show()
+      if password
+        $('.password').text(password)
+        $('.errors').hide()
+        form.hide()
+      else
+        $('.errors').text('Wrong encryption key').show()
 
 class @PasswordMigrate
   constructor: ->
@@ -59,6 +59,10 @@ class @PasswordMigrate
         $(e).find('.encrypted-pass').val(encryptedPassword)
 
         $(e).on "ajax:success", (event, xhr, settings) =>
-          $(e).parent().fadeOut()
+          $(e).parent().remove()
+
+          if $('.migrate-password-form').size() == 0
+            location.reload()
+
 
         $(e).trigger('submit.rails')

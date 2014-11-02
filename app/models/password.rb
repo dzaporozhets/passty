@@ -17,6 +17,8 @@ class Password < ActiveRecord::Base
   validates :title, presence: true
   validates :password, presence: true
 
+  scope :old, -> { where(old: true) }
+
   before_save :encrypt
 
   def encrypt

@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :applications, dependent: :destroy
+  has_many :passwords, through: :applications, dependent: :destroy
 
   after_create :generate_encrypting_key
 

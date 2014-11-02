@@ -1,4 +1,5 @@
 class ApplicationsController < ApplicationController
+  before_filter :migrate_old_passwords
   before_action :set_application, only: [:show, :edit, :update, :destroy]
 
   # GET /applications

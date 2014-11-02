@@ -1,9 +1,7 @@
 class PasswordsController < ApplicationController
+  before_filter :migrate_old_passwords, except: :update
   before_action :set_password, only: [:show, :edit, :update, :destroy]
-
   before_action :application
-
-  before_action :require_password, only: [:show, :edit]
 
   # GET /passwords
   # GET /passwords.json
@@ -48,9 +46,11 @@ class PasswordsController < ApplicationController
       if @password.update(password_params)
         format.html { redirect_to [application, @password], notice: 'Password was successfully updated.' }
         format.json { head :no_content }
+        format.js { render nothing: true }
       else
         format.html { render action: 'edit' }
         format.json { render json: @password.errors, status: :unprocessable_entity }
+        format.js { render nothing: true }
       end
     end
   end
@@ -78,7 +78,7 @@ class PasswordsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def password_params
-    params.require(:password).permit(:title, :description, :password)
+    params.require(:password).permit(:title, :description, :password, :old)
   end
 
   def application

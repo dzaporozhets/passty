@@ -9,11 +9,18 @@
 %p.cgray
   = @password.description
 
+.panel.panel-default
+  .panel-heading
+    %h5 Your password:
+  .panel-body
+    = hidden_field_tag :encrypted_password, @password.decrypted_password
+    .alert.alert-danger.errors.unvisible
+    .password
+      = link_to 'Decrypt password', '#', class: 'decrypt-link btn btn-primary'
 
-%h5 Your password:
-.ui-block
-  .password
-    = @password.decrypted_password
 
 %br
 = link_to 'Edit', edit_application_password_path(@application, @password), class: 'btn btn-default'
+
+:coffeescript
+  new PasswordShow()

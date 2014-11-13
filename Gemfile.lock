@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/jetthoughts/yaml_db.git
-  revision: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
-  ref: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
-  specs:
-    yaml_db (0.2.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -277,4 +270,3 @@ DEPENDENCIES
   thin
   turbolinks
   uglifier (>= 1.3.0)
-  yaml_db!

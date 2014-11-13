@@ -1,3 +1,6 @@
+v0.6.0
+  - Use client-side encryption
+
 v0.5.0
   - Redesign: bootstrap 3 with custom theme
   - Search over application title, description & url

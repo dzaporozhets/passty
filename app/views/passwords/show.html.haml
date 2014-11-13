@@ -9,11 +9,28 @@
 %p.cgray
   = @password.description
 
+.panel.panel-default
+  .panel-heading
+    %h5
+      Your password:
+      .pull-right
+        = link_to edit_application_password_path(@application, @password) do
+          %i.icon-edit
+          Edit
+  .panel-body
+    = hidden_field_tag :encrypted_password, @password.decrypted_password
+    .alert.alert-danger.errors.unvisible
+    .password-decrypt
+      = form_tag '#', class: 'decrypt-form' do
+        .form-group
+          = label_tag 'encrypt_key' do
+            Encryption key (master password)
+          = password_field_tag :encrypt_key, nil, class: 'form-control', required: true, autofocus: true
+        = submit_tag 'Decrypt password', class: 'btn btn-primary'
+    .password
 
-%h5 Your password:
-.ui-block
-  .password
-    = @password.decrypted_password
 
 %br
-= link_to 'Edit', edit_application_password_path(@application, @password), class: 'btn btn-default'
+
+:coffeescript
+  new PasswordShow()

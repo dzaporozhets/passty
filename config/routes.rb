@@ -3,7 +3,7 @@ Passty::Application.routes.draw do
     resources :passwords
   end
 
-  resource :password_check
+  resource :migrate
 
   devise_for :users
 

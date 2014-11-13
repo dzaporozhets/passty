@@ -1,4 +1,6 @@
-= form_for [@application, @password] do |f|
+= form_for [@application, @password], html: { id: 'password-form' } do |f|
+  .alert.alert-danger.errors.unvisible
+
   - if @password.errors.any?
     #error_explanation
       %h2= "#{pluralize(@password.errors.count, "error")} prohibited this password from being saved:"
@@ -9,15 +11,19 @@
   .form-group
     = f.label :title do
       Title (username, email etc)
-    = f.text_field :title, class: 'form-control'
+    = f.text_field :title, class: 'form-control', required: true
   .form-group
     = f.label :description, 'Description (optional)'
     = f.text_area :description, class: 'form-control'
   .form-group
     = f.label :password
-    = f.text_field :password, value: @password.decrypted_password, class: 'form-control'
+    = text_field_tag :decrypted_password, nil, class: 'form-control', required: true
+    = f.hidden_field :password
   .form-actions
     = f.submit 'Save', class: 'btn btn-primary'
 
     - unless @password.new_record?
       = link_to 'Cancel', [@application, @password], class: 'btn btn-default'
+
+:coffeescript
+  new PasswordForm()

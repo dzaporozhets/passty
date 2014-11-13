@@ -66,13 +66,14 @@ Pull Requests are welcome :)
 
 1. Get version you want
 
-    git feftch
-    git checkout v0.5.0
+        git fetch
+        git checkout v0.6.0
 
 
 2. Install libs and migration
 
-    bundle
-    bundle exec rake db:migrate RAILS_ENV=production
-
+        bundle
+        bundle exec rake db:migrate RAILS_ENV=production
+    
 3. Start application
+    
